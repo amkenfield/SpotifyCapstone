@@ -1,0 +1,497 @@
+/* BASIC COLOUR PALATE:
+
+#05386B
+#379683
+#5CDB95
+#8EE4AF
+#EDF5E1
+
+*/
+
+/* ====================== General */
+
+body {
+    background-color: #5CDB95;
+    font-family: 'Jost', sans-serif;
+  }
+  
+body.error-404 {
+  background-color: #05386b;
+}
+
+.form-control {
+  margin-bottom: 20px;
+}
+
+.btn {
+  border-radius: 50px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+input {
+  text-align: center;
+}
+  
+/* ======================= Nav */
+
+.navbar {
+  background-color: #5CDB95;
+  height: 54px;
+  position: relative;
+  z-index: 9999;
+}
+
+.navbar a {
+  color: #05386b;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: #edf5e1;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand > img {
+  display: inline-block;
+  margin-bottom: 2px;
+  margin-right: 5px;
+  width: 30px;
+  border-radius: 2px;
+}
+
+.nav > li > a > img {
+  width: 32px;
+  border-radius: 32px;
+}
+
+ul.nav.navbar-nav {
+  align-items: center;
+}
+
+ul.nav.navbar-nav li {
+  margin: 0 0.5rem;
+  display: flex;
+}
+
+nav form.navbar-form {
+  display: flex;
+  position: relative;
+}
+
+#search.form-control {
+  border-radius: 20px;
+  margin-bottom: 0;
+  width: 100%;
+  font-size: 13px;
+  padding-right: 28px;
+  box-sizing: border-box;
+  background-color: #edf5e1;
+}
+
+input#search.form-control {
+  color: #05386b;
+  font-weight: 600;
+}
+
+input#search.form-control::placeholder {
+  color: #05386B;
+}
+
+#search.form-control + .btn {
+  position: absolute;
+  right: 9px;
+  top: 2px;
+  bottom: 4px;
+  z-index: 1;
+  padding: 0;
+  color: #05386B;
+}
+
+#search.form-control + .btn:active,
+#search.form-control + .btn:focus {
+  box-shadow: none;
+}
+
+#search:active,
+#search:focus {
+  box-shadow: none;
+  border: 2px solid #05386B;
+}
+
+/* on "onboarding" pages (signup & login), the navbar is
+  different: no search box, the logo is centered, and it has
+  a background color.
+*/
+
+.onboarding .navbar-header {
+  margin: 0 auto;
+}
+
+.onboarding .navbar-brand {
+  margin: 0;
+}
+
+.onboarding .navbar-brand span {
+  display: none;
+}
+
+.onboarding .nav.navbar-nav.navbar-right {
+  position: absolute;
+  right: 16px;
+}
+
+.onboarding > .navbar a {
+  color: #edf5e1;
+}
+
+.onboarding > .navbar form.navbar-form {
+  display: none;
+}
+
+nav + .container {
+  margin-bottom: 1rem;
+}
+
+/* ========================== Signup/Login */
+
+#user_form input.form-control {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px;
+  color: #05386B;
+  letter-spacing: .1rem;
+}
+
+#user_form label {
+  font-size: 1.1rem;
+  padding-bottom: .25rem;
+  color: #edf5e1;
+  text-align: center;
+}
+
+.user-form-button, .home-hero-btn, .search-form-btn {
+  background-color: #379683;
+  color: #EDF5E1;
+  margin-top: 2.0rem;
+}
+
+.user-form-button:hover, .home-hero-btn:hover, .search-form-btn:hover {
+  border-color: #8ee4af;
+  box-shadow: (0px 1px 1px #8ee4af);
+  color: #edf5e1;
+}
+
+.user-form-button:focus, .home-hero-btn:focus, .search-form-btn:focus {
+  border-color: #8ee4af;
+  box-shadow: (0px 1px 1px #05386B);
+}
+/* ===================== User profile */
+
+.join-message {
+  margin-top: 100px;
+  margin-bottom: 4rem;
+  text-align: center;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  color: #EDF5E1;
+}
+
+input#username.form-control {
+  appearance: menulist-button;
+  background-color: #05386B;
+  color: #EDF5E1;
+  
+}
+
+input#username.form-control::placeholder {
+  color: #05386B
+}
+
+input#username.form-control:focus {
+  border-color: #379693;
+  box-shadow: (0px 1px 1px #379683);
+}
+
+input#email.form-control {
+  appearance: menulist-button;
+  background-color: #05386B;
+  color: #EDF5E1
+}
+
+input#email.form-control::placeholder {
+  color: #05386B
+}
+
+input#email.form-control:focus {
+  border-color: #379693;
+  box-shadow: (0px 1px 1px #379683);
+}
+
+input#password.form-control {
+  appearance: menulist-button;
+  background-color: #05386B;
+  color: #EDF5E1
+}
+
+input#password.form-control::placeholder {
+  color: #05386B
+}
+
+input#password.form-control:focus {
+  border-color: #379693;
+  box-shadow: (0px 1px 1px #379683);
+}
+
+/* input:-webkit-autofill {
+  color: #EDF5E1;
+  background-color: #05386B;
+} */
+
+/* Home and Home-Anon styling */
+
+.home-hero {
+  margin-top: 14rem;
+  margin-bottom: 4rem;
+  text-align: center;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  color: #EDF5E1;
+}
+
+.home-hero h1, h4 {
+  margin-bottom: 1.5rem;
+}
+
+.home-hero h3 {
+  margin-bottom: 3.0rem;
+}
+
+.home-hero label {
+  padding-bottom: .25rem;
+}
+
+input#q.form-control {
+  appearance: menulist-button;
+  background-color: #05386B;
+  color: #EDF5E1;
+  
+}
+
+input#q.form-control::placeholder {
+  color: #05386B
+}
+
+input#q.form-control:focus {
+  border-color: #379693;
+  box-shadow: (0px 1px 1px #379683);
+}
+
+
+/* Individual User Pages */
+
+.user-profile {
+  font-family: 'Jost', sans-serif;
+  text-align: center;
+}
+
+.user-profile h1 {
+  padding-top: 6rem;
+  padding-bottom: 2rem;
+  text-align: center;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  color: #EDF5E1;
+}
+
+
+li.list-group-item.border-0 {
+  background-color: #5CDB95;
+}
+
+#user-tracks {
+  padding-bottom: 9rem;
+}
+
+#user-tracks a {
+  color: #05386B;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+#user-tracks a:hover {
+  font-weight: 600;
+}
+
+#user-profile-links h4 {
+  color: #379683;
+  margin-bottom: 1.8rem;
+}
+
+.btn.edit-user-btn {
+  color: #edf5e1;
+  border-color: #8EE4AF;
+}
+
+.btn.edit-user-btn:hover {
+  background-color: #379683;
+}
+
+
+/* There's still some issues with Bootstrap overriding this and the delete btn;
+  at this point, I think fixing is 'nice to have' rather than 'must have' */
+.btn.edit-user-btn:focus {
+  box-shadow: (0px 1px 1px #379683);
+}
+
+.btn.delete-user-btn {
+  color: #edf5e1;
+  border-color: #8EE4AF;
+}
+
+.btn.delete-user-btn:hover {
+  color: #EDF5E1;
+  border-color: #EDF5E1;
+  background-color: #05386B;
+}
+
+
+/* User Edit Page */
+
+#edit-user-p {
+  color: #EDF5E1;
+  text-align: center;
+}
+
+
+/* Tracks Index (db search) Page */
+
+h2#db-search-heading {
+  color: #EDF5E1;
+  padding: 2rem;
+}
+
+.card.track-card {
+  background-color: #8EE4AF;
+  border-color: #379683;
+  margin-bottom: .75rem;
+}
+
+.btn.add-track-btn {
+  background-color: #EDF5E1;
+  color: #05386B;
+  border-color: #05386B;
+}
+
+.btn.add-track-btn:hover {
+  background-color: #05386B;
+  color: #EDF5E1;
+}
+
+.btn.remove-track-btn {
+  background-color: #05386B;
+  border-color: #EDF5E1;
+  color: #EDF5E1;
+}
+
+.btn.remove-track-btn:hover {
+  background-color: #EDF5E1;
+  color: #05386B;
+  border-color: #05386B;
+}
+
+a.card-link {
+  text-decoration: none;
+  color: #05386b;
+  font-weight: 500;
+}
+
+p.card-text {
+  color: #379693;
+}
+
+
+/* Individual Track Page */
+
+ul#single-track-header {
+  list-style-type: none;
+  padding-top: 6rem;
+  padding-bottom: 3.5rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #EDF5E1;
+}
+
+h5#track-af-heading {
+  text-align: center;
+  font-weight: 600;
+  color: #05386B;
+  padding-bottom: .75rem;
+}
+
+div#single-track-btns.container {
+  padding-top: 1rem;
+}
+
+.btn.single-track-btn {
+  color: #edf5e1;
+  border-color: #8EE4AF;
+  background-color: #379683;
+}
+
+.btn.single-track-btn:hover {
+  color: #EDF5E1;
+  border-color: #EDF5E1;
+  background-color: #05386B;
+}
+
+li.list-group-item.track-af {
+  background-color: #5CDB95;
+  border: none;
+  color: #EDF5E1;
+  font-weight: 500;
+}
+
+
+/* Categories Page */
+
+h2#af-cat-header {
+  text-align: center;
+  padding: 2rem 0rem;
+  color: #EDF5E1;
+}
+
+table {
+  color: #EDF5E1;
+  border-collapse: separate;
+  border-spacing: 1.25rem;
+}
+
+
+span.cat-td-title {
+  color: #05386B;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* Spotify Search Page */
+
+label#search-label {
+  color: #EDF5E1;
+  padding-bottom: .5rem;
+}
+
+#no-sp-results-msg {
+  color: #EDF5E1;
+  padding-bottom: 3rem;
+}

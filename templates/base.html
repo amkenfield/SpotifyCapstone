@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Track Unpacker</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <script src="https://unpkg.com/jquery"></script>
+  <script src="https://unpkg.com/popper"></script>
+  <script src="https://unpkg.com/bootstrap"></script>
+
+  <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  <link rel="stylesheet" href="/static/stylesheets/style.css">
+  <link rel="shortcut icon" href="/static/favicon.ico">
+  <link rel="stylesheet" href="<link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital@0;1&display=swap" rel="stylesheet">
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+  <nav class="navbar navbar-nav navbar-expand">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">
+          <img src="/static/images/logo-icon.png" alt="logo">
+          <span>Track Unpacker</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        {% if request.endpoint != None %}
+        <li>
+          <form class="navbar-form navbar-right" action="/search">
+            <input name="q" class="form-control" placeholder="Search Spotify!" id="search">
+            <button class="btn btn-default">
+              <span class="fa fa-search"></span>
+            </button>
+          </form>
+        </li>
+        {% endif %}
+        <li><a href="/categories">Categories</a></li>
+        {% if not g.user %}
+        <li><a href="/signup">Sign up</a></li>
+        <li><a href="/login">Log in</a></li>
+        {% else %}
+        <li>
+          <a href="/users/{{ g.user.id }}">
+            <span>{{g.user.username}}</span>
+          </a>
+        </li>
+        <li><a href="/logout">Log out</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+<!-- The below can be left unchanged from Warbler (I think) -->
+<div class="container">
+  {% for category, message in get_flashed_messages(with_categories=True) %}
+  <div class="alert alert-{{ category }}">{{ message }}</div>
+  {% endfor %}
+
+  {% block content %}
+  {% endblock %}
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>

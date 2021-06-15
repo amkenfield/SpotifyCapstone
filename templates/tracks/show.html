@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <ul class="list-group" id="tracks">
+          <div class="track-area">
+            <!-- really unsure how to style/structure this, but will at least get something down for a start -->
+            <ul class="list-group single-track" id="single-track-header">
+                <li class="">Track Name: {{track.name}}</li>
+                <li class="">Artist: {{track.artist}}</li>
+                <li class="">Album: {{track.album}}</li>
+            </ul>
+            <h5 id="track-af-heading">Track Audio Features</h5>
+            <ul class="list-group single-track text-center" id="single-track-af">
+                <li class="list-group-item track-af">Acousticness: {{track.acousticness}}</li>
+                <li class="list-group-item track-af">Danceability: {{track.danceability}}</li>
+                <li class="list-group-item track-af">Duration: {{track.duration_ms}} ms</li>
+                <li class="list-group-item track-af">Energy: {{track.energy}}</li>
+                <li class="list-group-item track-af">Instrumentalness: {{track.instrumentalness}}</li>
+                <li class="list-group-item track-af">Key: {{track.key}}</li>
+                <li class="list-group-item track-af">Liveness: {{track.liveness}}</li>
+                <li class="list-group-item track-af">Loudness: {{track.loudness}}</li>
+                <li class="list-group-item track-af">Mode: {{track.mode}}</li>
+                <li class="list-group-item track-af">Speechiness: {{track.speechiness}}</li>
+                <li class="list-group-item track-af">Tempo: {{track.tempo}} bpm</li>
+                <li class="list-group-item track-af">Time Signature: {{track.time_signature}}</li>
+                <li class="list-group-item track-af">Valence: {{track.valence}}</li>
+            </ul>
+          </div>
+          <div class="container text-center" id="single-track-btns">
+            {% if g.user.is_following(track) %}
+              <form method="POST"
+                    action="/users/stop-following/{{ track.id}}">
+                <button class="btn single-track-btn">Remove Track from Own Library</button>
+              </form>
+            {% else %}
+              <form method="POST" action="/users/follow/{{ track.id }}">
+                <button class="btn single-track-btn">Add Track to Own Library</button>
+              </form>
+            {% endif %}
+        </div>
+      </ul>
+    </div>
+  </div>
+
+{% endblock %}

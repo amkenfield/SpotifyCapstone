@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ user.username }}{% endblock %}}
+
+{% block content %}
+
+<div class="container-fluid">
+<div class="row justify-content-center">
+  <div class="col-md-7 col-lg-5 user-profile">
+
+    <h1 class="mt-4">{{user.username}}'s Tracks</h1>
+
+    <div class="container">
+      <ul class="list-group list-group-flush" id="user-tracks">
+        {% for track in user.tracks %}
+        <li class="list-group-item border-0">
+          <a href="/tracks/{{ track.id}}">{{ track.name }} - {{track.artist}}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="container" id="user-profile-links">
+      <!-- I'm sure there's better text for the below, but I'll leave it as-is for now -->
+      <h4>{{ user.username }}</h4>
+      <div class="row btn-group">
+        <div class="col-auto">
+        {% if g.user.id == user.id %}
+        <a href="/users/profile" class="btn edit-user-btn">Edit User Info</a>
+        </div>
+        <!-- <div class="col-auto">
+        <form method="POST" action="/users/delete" class="form-inline">
+          <button class="btn delete-user-btn">Delete User</button>
+        </form> -->
+        {% endif %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>  
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="row justify-content-center">
+      <div class="col-sm-9">
+        <h2 class="text-center" id="db-search-heading">Search Results</h2>
+        <div class="row">
+
+          {% if not tracks %}
+          <div class="text-center" id="no-sp-results-msg">
+            <h2>No Spotify Results Found - </h2>
+            <h3>Please Check Our Database!</h3>
+          </div>
+          {% endif %}
+
+          {% for track in tracks %}
+
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="card track-card text-center">
+              <div class="card-body">
+                <div class="card-contents">
+                  <a href="/tracks/{{track.id}}" class="card-link">
+                    <h6 class="card-title">{{ track.name }}</h6>
+                  </a>
+                  <p class="card-text">{{track.artist}}</p>
+
+                  {% if g.user %}
+                  <!-- Can I come up with a better name than 'is_following()'? -->
+                  {% if g.user.is_following(track) %}
+                    <form method="POST"
+                          action="/users/stop-following/{{ track.id }}">
+                      <button class="btn remove-track-btn">Remove Track</button>
+                    </form>
+                  {% else %}
+                    <form method="POST"
+                          action="/users/follow/{{ track.id }}">
+                      <button class="btn add-track-btn">Add Track</button>
+                    </form>
+                  {% endif %}
+                {% endif %}
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+
+
+<!-- This is duplicated - may want to extract into own template? -->
+<div class="row justify-content-sm-center">
+    <div class="col-md-7 col-lg-5">
+        <form id="search-form" action="/tracks" method="GET" class="form-inline text-center">
+            <div>
+                <label><label id="search-label" for="q">Track Name</label></label>
+                <input class="form-control" type="text" name="q" id="q">
+            </div>
+            <button class="btn search-form-btn">Search Our Database!</button>
+        </form>
+    </div>
+</div>
+
+<!-- Should there be some sort of 'Return Home' button/link/etc? -->
+
+{% endblock %}

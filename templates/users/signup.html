@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+<!-- below left as-is for now; unsure if neeeded to be altered or deleted -->
+{% block body_class %}onboarding{% endblock %}
+
+{% block content %}
+
+  <div class="row justify-content-md-center">
+  <div class="col-md-7 col-lg-5">
+    <h2 class="join-message">Register for Track Unpacker!</h2>
+    <div class="d-flex justify-content-center">
+      <div class="col-lg-10">
+        <form method="POST" id="user_form" class="form-inline text-center">
+          {{ form.hidden_tag() }}
+
+          {% for field in form if field.widget.input_type != 'hidden' %}
+            {% for error in field.errors %}
+              <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+            <label>{{field.label}}</label>
+            {{ field(placeholder=field.label.text, class="form-control") }}
+          {% endfor %}
+
+          <button class="btn btn-lg user-form-button" id="join-button">Let's Do This!</button>
+        </form>
+      </div>
+  </div>
+  </div>
+</div>
+
+{% endblock %}
