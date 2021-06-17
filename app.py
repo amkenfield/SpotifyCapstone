@@ -305,7 +305,7 @@ def search_spotify():
         print("Track List Empty")
     else:
         formatted_query = quote_plus(search)
-        results = sp.search(formatted_query, limit=20)
+        results = sp.search(formatted_query, limit=5)
 
         for result in results['tracks']['items']:
             db_track = Track.query.filter(Track.spotify_id == result['id']).all()
