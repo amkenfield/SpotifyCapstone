@@ -22,6 +22,7 @@ app.config['SQLALCHEMY_ECHO'] = True
 # however, if you want to turn it off, you can uncomment this line:
 # app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', "up_the_planes")
+print(app.config["SECRET_KEY"])
 debug = DebugToolbarExtension(app)
 
 os.environ['SPOTIPY_CLIENT_ID'] = '01480f8165f84e0f869d00a9cd62e934'
