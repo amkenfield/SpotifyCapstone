@@ -24,9 +24,6 @@ app.config['SQLALCHEMY_ECHO'] = True
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', "up_the_planes")
 debug = DebugToolbarExtension(app)
 
-os.environ['SPOTIPY_CLIENT_ID'] = '01480f8165f84e0f869d00a9cd62e934'
-os.environ['SPOTIPY_CLIENT_SECRET'] = '9040ee998b904b7dbee1a62f229f8c6f'
-
 auth_manager = SpotifyClientCredentials()
 sp = spotipy.Spotify(auth_manager=auth_manager)
 
@@ -307,7 +304,7 @@ def search_spotify():
         formatted_query = quote_plus(search)
         results = sp.search(formatted_query, limit=5)
 
-        for result in results['tracks']['items']:
+        SPofor result in results['tracks']['items']:
             db_track = Track.query.filter(Track.spotify_id == result['id']).all()
             print(db_track)
 
